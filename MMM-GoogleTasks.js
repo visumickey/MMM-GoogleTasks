@@ -10,7 +10,8 @@ Module.register("MMM-GoogleTasks", {
     animationSpeed: 2000, // Speed of the update animation (milliseconds)
     tableClass: "small", // Name of the classes issued from main.css
     wrapText: false, // Flag to wrap text
-    maxWidth: "450px" // Max width of module (e.g. "450px", "100%", "300px", or false)
+    maxWidth: "450px", // Max width of module (e.g. "450px", "100%", "300px", or false)
+    boldText: false // Flag to make task text bold/thicker
 
     // Pointless for a mirror, not currently implemented
     /* 
@@ -95,6 +96,15 @@ Module.register("MMM-GoogleTasks", {
       wrapper.className += " wrap-text";
     }
 
+    const shouldBold =
+      this.config.boldText ||
+      this.config.textBold ||
+      this.config.bold ||
+      this.config.fontWeight === "bold";
+    if (shouldBold) {
+      wrapper.className += " bold-text";
+    }
+
     if (this.config.maxWidth) {
       wrapper.style.maxWidth =
         typeof this.config.maxWidth === "number"
@@ -175,8 +185,8 @@ Module.register("MMM-GoogleTasks", {
 
       // Create borders between parent items
       if (index < this.tasks.length - 1 && !this.tasks[index + 1].parent) {
-        titleWrapper.style.borderBottom = "1px solid #666";
-        dateWrapper.style.borderBottom = "1px solid #666";
+        titleWrapper.className += " border";
+        dateWrapper.className += " border";
       }
 
       wrapper.appendChild(titleWrapper);

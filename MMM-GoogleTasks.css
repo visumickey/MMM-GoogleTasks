@@ -1,7 +1,7 @@
   .MMM-GoogleTasks .container {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
-      transform: translateY(-.6em);
+      margin-top: 0.25em;
       box-sizing: border-box;
   }
 
@@ -47,6 +47,7 @@
 
   .MMM-GoogleTasks .item {
       text-align: left;
+      padding-top: .15em;
       padding-bottom: .25em;
       min-width: 0;
       white-space: nowrap;
@@ -60,6 +61,16 @@
       white-space: normal !important;
       overflow-wrap: break-word;
       word-break: break-word;
+  }
+
+  .MMM-GoogleTasks .container.bold-text .item,
+  .MMM-GoogleTasks .bold-text .item,
+  .MMM-GoogleTasks.bold-text .item {
+      font-weight: 600;
+  }
+
+  .MMM-GoogleTasks .item.border {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   }
 
   /* .MMM-GoogleTasks .item.title {

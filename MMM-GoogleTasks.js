@@ -9,7 +9,8 @@ Module.register("MMM-GoogleTasks", {
     updateInterval: 10000, // Time between content updates (millisconds)
     animationSpeed: 2000, // Speed of the update animation (milliseconds)
     tableClass: "small", // Name of the classes issued from main.css
-    wrapText: false // Flag to wrap text
+    wrapText: false, // Flag to wrap text
+    maxWidth: "450px" // Max width of module (e.g. "450px", "100%", "300px", or false)
 
     // Pointless for a mirror, not currently implemented
     /* 
@@ -92,6 +93,13 @@ Module.register("MMM-GoogleTasks", {
       this.config.wrap;
     if (shouldWrap) {
       wrapper.className += " wrap-text";
+    }
+
+    if (this.config.maxWidth) {
+      wrapper.style.maxWidth =
+        typeof this.config.maxWidth === "number"
+          ? this.config.maxWidth + "px"
+          : this.config.maxWidth;
     }
 
     if (!this.tasks) {

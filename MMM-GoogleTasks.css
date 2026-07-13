@@ -2,6 +2,7 @@
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       transform: translateY(-.6em);
+      box-sizing: border-box;
   }
 
   .MMM-GoogleTasks .container.xsmall,

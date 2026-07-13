@@ -90,7 +90,7 @@ Module.register("MMM-GoogleTasks", {
 
     if (!this.tasks) {
       wrapper.innerHTML = this.loaded ? "EMPTY" : "LOADING";
-      wrapper.className = this.config.tableClass + " dimmed";
+      wrapper.className = "container " + this.config.tableClass + " dimmed";
       return wrapper;
     }
 

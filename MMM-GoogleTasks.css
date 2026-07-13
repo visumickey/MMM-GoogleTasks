@@ -4,6 +4,31 @@
       transform: translateY(-.6em);
   }
 
+  .MMM-GoogleTasks .container.xsmall {
+      font-size: 15px;
+      line-height: 20px;
+  }
+
+  .MMM-GoogleTasks .container.small {
+      font-size: 20px;
+      line-height: 25px;
+  }
+
+  .MMM-GoogleTasks .container.medium {
+      font-size: 30px;
+      line-height: 35px;
+  }
+
+  .MMM-GoogleTasks .container.large {
+      font-size: 45px;
+      line-height: 50px;
+  }
+
+  .MMM-GoogleTasks .container.xlarge {
+      font-size: 65px;
+      line-height: 70px;
+  }
+
   .MMM-GoogleTasks .item {
       text-align: left;
       padding-bottom: .25em;

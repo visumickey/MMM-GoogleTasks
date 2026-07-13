@@ -93,6 +93,19 @@
       padding-left: 1.5em;
   }
 
+  .MMM-GoogleTasks .item.title,
+  .MMM-GoogleTasks .item.child {
+      color: var(--task-title-color, #ffffff);
+  }
+
+  .MMM-GoogleTasks .container.colored .fa-circle-thin {
+      color: #4285f4;
+  }
+
+  .MMM-GoogleTasks .container.colored .fa-check {
+      color: #0f9d58;
+  }
+
   .MMM-GoogleTasks .fa  {
     vertical-align: middle;
     padding-bottom: .25em;

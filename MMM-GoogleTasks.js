@@ -11,7 +11,19 @@ Module.register("MMM-GoogleTasks", {
     tableClass: "small", // Name of the classes issued from main.css
     wrapText: false, // Flag to wrap text
     maxWidth: "450px", // Max width of module (e.g. "450px", "100%", "300px", or false)
-    boldText: false // Flag to make task text bold/thicker
+    boldText: false, // Flag to make task text bold/thicker
+    colored: true, // Flag to color bullet icons and brighten task titles
+    colorTasks: false, // Set true to give each task item its own vibrant color (like calendar events)
+    taskColors: [
+      "#4285f4",
+      "#f4b400",
+      "#0f9d58",
+      "#ff7043",
+      "#ab47bc",
+      "#00acc1",
+      "#ec407a"
+    ], // Array of vibrant colors for tasks when colorTasks is true
+    titleColor: "" // Custom CSS color for task titles (e.g. "#fff", "#4285f4")
 
     // Pointless for a mirror, not currently implemented
     /* 
@@ -105,6 +117,14 @@ Module.register("MMM-GoogleTasks", {
       wrapper.className += " bold-text";
     }
 
+    if (this.config.colored) {
+      wrapper.className += " colored";
+    }
+
+    if (this.config.titleColor) {
+      wrapper.style.setProperty("--task-title-color", this.config.titleColor);
+    }
+
     if (this.config.maxWidth) {
       wrapper.style.maxWidth =
         typeof this.config.maxWidth === "number"
@@ -166,6 +186,11 @@ Module.register("MMM-GoogleTasks", {
 
       if (item.parent) {
         titleWrapper.className = "item child";
+      }
+
+      if (this.config.colorTasks && this.config.taskColors && this.config.taskColors.length > 0) {
+        const color = this.config.taskColors[index % this.config.taskColors.length];
+        titleWrapper.style.color = color;
       }
 
       if (item.notes) {

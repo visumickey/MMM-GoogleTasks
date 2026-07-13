@@ -84,7 +84,13 @@ Module.register("MMM-GoogleTasks", {
     let wrapper = document.createElement("div");
     wrapper.className = "container ";
     wrapper.className += this.config.tableClass;
-    if (this.config.wrapText) {
+    const shouldWrap =
+      this.config.wrapText ||
+      this.config.textWrap ||
+      this.config.wrapTitle ||
+      this.config.wrapEvents ||
+      this.config.wrap;
+    if (shouldWrap) {
       wrapper.className += " wrap-text";
     }
 

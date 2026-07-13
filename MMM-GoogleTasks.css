@@ -4,29 +4,44 @@
       transform: translateY(-.6em);
   }
 
-  .MMM-GoogleTasks .container.xsmall {
-      font-size: 15px;
-      line-height: 20px;
+  .MMM-GoogleTasks .container.xsmall,
+  .MMM-GoogleTasks .container.xsmall .item,
+  .MMM-GoogleTasks.xsmall .item,
+  .MMM-GoogleTasks.xsmall .container {
+      font-size: 15px !important;
+      line-height: 20px !important;
   }
 
-  .MMM-GoogleTasks .container.small {
-      font-size: 20px;
-      line-height: 25px;
+  .MMM-GoogleTasks .container.small,
+  .MMM-GoogleTasks .container.small .item,
+  .MMM-GoogleTasks.small .item,
+  .MMM-GoogleTasks.small .container {
+      font-size: 20px !important;
+      line-height: 25px !important;
   }
 
-  .MMM-GoogleTasks .container.medium {
-      font-size: 30px;
-      line-height: 35px;
+  .MMM-GoogleTasks .container.medium,
+  .MMM-GoogleTasks .container.medium .item,
+  .MMM-GoogleTasks.medium .item,
+  .MMM-GoogleTasks.medium .container {
+      font-size: 30px !important;
+      line-height: 35px !important;
   }
 
-  .MMM-GoogleTasks .container.large {
-      font-size: 45px;
-      line-height: 50px;
+  .MMM-GoogleTasks .container.large,
+  .MMM-GoogleTasks .container.large .item,
+  .MMM-GoogleTasks.large .item,
+  .MMM-GoogleTasks.large .container {
+      font-size: 45px !important;
+      line-height: 50px !important;
   }
 
-  .MMM-GoogleTasks .container.xlarge {
-      font-size: 65px;
-      line-height: 70px;
+  .MMM-GoogleTasks .container.xlarge,
+  .MMM-GoogleTasks .container.xlarge .item,
+  .MMM-GoogleTasks.xlarge .item,
+  .MMM-GoogleTasks.xlarge .container {
+      font-size: 65px !important;
+      line-height: 70px !important;
   }
 
   .MMM-GoogleTasks .item {
@@ -38,8 +53,10 @@
       text-overflow: ellipsis;
   }
 
-  .MMM-GoogleTasks .container.wrap-text .item {
-      white-space: normal;
+  .MMM-GoogleTasks .container.wrap-text .item,
+  .MMM-GoogleTasks .wrap-text .item,
+  .MMM-GoogleTasks.wrap-text .item {
+      white-space: normal !important;
       overflow-wrap: break-word;
       word-break: break-word;
   }
@@ -50,7 +67,7 @@
   .MMM-GoogleTasks .item.date {
       padding-left: 1.7em;
       text-align: right;
-      white-space: nowrap;
+      white-space: nowrap !important;
   }
 
   .MMM-GoogleTasks .item.notes {

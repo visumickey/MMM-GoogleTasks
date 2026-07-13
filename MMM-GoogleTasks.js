@@ -12,6 +12,7 @@ Module.register("MMM-GoogleTasks", {
     wrapText: false, // Flag to wrap text
     maxWidth: "450px", // Max width of module (e.g. "450px", "100%", "300px", or false)
     boldText: false, // Flag to make task text bold/thicker
+    fontWeight: 500, // Font weight for task items (e.g. 400, 500, 600)
     colored: true, // Flag to color bullet icons and brighten task titles
     colorTasks: false, // Set true to give each task item its own vibrant color (like calendar events)
     taskColors: [
@@ -119,6 +120,10 @@ Module.register("MMM-GoogleTasks", {
     if (shouldBold) {
       wrapper.className += " bold-text";
     }
+
+    const taskWeight =
+      this.config.fontWeight || (shouldBold ? 500 : 400);
+    wrapper.style.setProperty("--task-font-weight", taskWeight);
 
     if (this.config.colored) {
       wrapper.className += " colored";

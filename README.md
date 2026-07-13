@@ -64,6 +64,7 @@ var config = {
 | `wrapText`              | *Optional* - Wrap text of task items <br><br> **Possible values:** `true`, `false` <br> **Default value:** `false` |
 | `maxWidth`              | *Optional* - Maximum width of the module container <br><br> **Possible values:** `"450px"`, `"300px"`, `"100%"`, `false` <br> **Default value:** `"450px"` |
 | `boldText`              | *Optional* - Make task text bold/thicker <br><br> **Possible values:** `true`, `false` <br> **Default value:** `false` |
+| `fontWeight`            | *Optional* - Font weight thickness for task items <br><br> **Possible values:** `300` (Light), `400` (Normal), `500` (Medium), `600` (Semi-Bold) <br> **Default value:** `500` (Medium) |
 | `colored`               | *Optional* - Color bullet/checkmark icons and brighten task titles <br><br> **Possible values:** `true`, `false` <br> **Default value:** `true` |
 | `colorTasks`            | *Optional* - Assign distinct vibrant colors to each task item (like calendar events) <br><br> **Possible values:** `true`, `false` <br> **Default value:** `false` |
 | `taskColors`            | *Optional* - Array of vibrant color hex strings to cycle through when `colorTasks` is enabled <br><br> **Possible values:** Array of color strings <br> **Default value:** `["#4285f4", "#f4b400", "#0f9d58", "#ff7043", "#ab47bc", "#00acc1", "#ec407a"]` |

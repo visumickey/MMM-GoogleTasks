@@ -53,6 +53,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      font-weight: var(--task-font-weight, 500);
   }
 
   .MMM-GoogleTasks .container.wrap-text .item,
@@ -66,7 +67,7 @@
   .MMM-GoogleTasks .container.bold-text .item,
   .MMM-GoogleTasks .bold-text .item,
   .MMM-GoogleTasks.bold-text .item {
-      font-weight: 600;
+      font-weight: var(--task-font-weight, 500);
   }
 
   .MMM-GoogleTasks .item.border {

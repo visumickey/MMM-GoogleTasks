@@ -7,7 +7,15 @@
   .MMM-GoogleTasks .item {
       text-align: left;
       padding-bottom: .25em;
-      }
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+
+  .MMM-GoogleTasks .container.wrap-text .item {
+      white-space: normal;
+      overflow-wrap: break-word;
+  }
 
   /* .MMM-GoogleTasks .item.title {
   } */

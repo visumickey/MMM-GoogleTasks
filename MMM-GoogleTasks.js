@@ -8,7 +8,8 @@ Module.register("MMM-GoogleTasks", {
     dateFormat: "MMM Do", // Format to display dates (moment.js formats)
     updateInterval: 10000, // Time between content updates (millisconds)
     animationSpeed: 2000, // Speed of the update animation (milliseconds)
-    tableClass: "small" // Name of the classes issued from main.css
+    tableClass: "small", // Name of the classes issued from main.css
+    wrapText: false // Flag to wrap text
 
     // Pointless for a mirror, not currently implemented
     /* 
@@ -83,6 +84,9 @@ Module.register("MMM-GoogleTasks", {
     let wrapper = document.createElement("div");
     wrapper.className = "container ";
     wrapper.className += this.config.tableClass;
+    if (this.config.wrapText) {
+      wrapper.className += " wrap-text";
+    }
 
     if (!this.tasks) {
       wrapper.innerHTML = this.loaded ? "EMPTY" : "LOADING";

@@ -61,3 +61,4 @@ var config = {
 | `animationSpeed`        | Speed of the update animation. (Milliseconds) <br><br> **Possible values:** `0` - `5000` <br> **Default value:** `2000` (2 seconds) |
 | `tableClass`            | Name of the classes issued from `main.css`. <br><br> **Possible values:** `xsmall`, `small`, `medium`, `large`, `xlarge`. <br> **Default value:** `small` |
 | `ordering`              | The method to order results <br><br> **Possible values:** `myorder` (order as shown in the Tasks app), `due`, `title`, `updated`. <br> **Default value:** `myorder` |
+| `wrapText`              | *Optional* - Wrap text of task items <br><br> **Possible values:** `true`, `false` <br> **Default value:** `false` |

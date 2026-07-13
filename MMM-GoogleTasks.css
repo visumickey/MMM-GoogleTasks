@@ -1,12 +1,13 @@
   .MMM-GoogleTasks .container {
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: minmax(0, 1fr) auto;
       transform: translateY(-.6em);
   }
 
   .MMM-GoogleTasks .item {
       text-align: left;
       padding-bottom: .25em;
+      min-width: 0;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -15,6 +16,7 @@
   .MMM-GoogleTasks .container.wrap-text .item {
       white-space: normal;
       overflow-wrap: break-word;
+      word-break: break-word;
   }
 
   /* .MMM-GoogleTasks .item.title {
@@ -23,6 +25,7 @@
   .MMM-GoogleTasks .item.date {
       padding-left: 1.7em;
       text-align: right;
+      white-space: nowrap;
   }
 
   .MMM-GoogleTasks .item.notes {

@@ -63,28 +63,21 @@ module.exports = NodeHelper.create({
             return;
         }
 
+        const fetchLimit = Math.max(100, config.maxResults || 10);
+
         self.service.tasks.list({
             tasklist: config.listID,
-            maxResults: config.maxResults,
+            maxResults: fetchLimit,
             showCompleted: config.showCompleted,
             showHidden: config.showHidden,
         }, (err, res) => {
             if (err) return console.error('The API returned an error: ' + err);
 
-            // Testing
-            /* 
-            const tasksList = res.data.items;
-            console.log(tasksList);
-            if (tasksList) {
-                tasksList.forEach((task) => {
-                    console.log(task);
-                });
-            } else {
-                console.log('No tasks found.');
-            }
-             */
-
-            var payload = {id: config.listID, items: res.data.items};
+            var payload = {
+                id: config.listID,
+                items: res.data.items,
+                nextPageToken: res.data.nextPageToken
+            };
             self.sendSocketNotification("UPDATE_DATA", payload);
         });
     },

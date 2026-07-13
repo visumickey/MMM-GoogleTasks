@@ -23,7 +23,9 @@ Module.register("MMM-GoogleTasks", {
       "#00acc1",
       "#ec407a"
     ], // Array of vibrant colors for tasks when colorTasks is true
-    titleColor: "" // Custom CSS color for task titles (e.g. "#fff", "#4285f4")
+    titleColor: "", // Custom CSS color for task titles (e.g. "#fff", "#4285f4")
+    showMoreIndicator: true, // Flag to show indicator when total tasks exceed maxResults
+    moreIndicatorFormat: "+{extra} more tasks" // Format string ({extra}, {total}, {displayed})
 
     // Pointless for a mirror, not currently implemented
     /* 
@@ -83,6 +85,7 @@ Module.register("MMM-GoogleTasks", {
     ) {
       // Handle new data
       this.loaded = true;
+      this.nextPageToken = payload.nextPageToken;
       if (payload.items) {
         this.tasks = payload.items;
         this.updateDom(this.config.animationSpeed);
@@ -173,7 +176,12 @@ Module.register("MMM-GoogleTasks", {
 
     let titleWrapper, dateWrapper, noteWrapper;
 
-    this.tasks.forEach((item, index) => {
+    let tasksToDisplay = this.tasks;
+    if (this.tasks.length > this.config.maxResults) {
+      tasksToDisplay = this.tasks.slice(0, this.config.maxResults);
+    }
+
+    tasksToDisplay.forEach((item, index) => {
       titleWrapper = document.createElement("div");
       titleWrapper.className = "item title";
       titleWrapper.innerHTML =
@@ -209,7 +217,7 @@ Module.register("MMM-GoogleTasks", {
       }
 
       // Create borders between parent items
-      if (index < this.tasks.length - 1 && !this.tasks[index + 1].parent) {
+      if (index < tasksToDisplay.length - 1 && !tasksToDisplay[index + 1].parent) {
         titleWrapper.className += " border";
         dateWrapper.className += " border";
       }
@@ -217,6 +225,22 @@ Module.register("MMM-GoogleTasks", {
       wrapper.appendChild(titleWrapper);
       wrapper.appendChild(dateWrapper);
     });
+
+    if (this.config.showMoreIndicator && this.tasks.length > this.config.maxResults) {
+      let extraTasks = this.tasks.length - tasksToDisplay.length;
+      let extraStr = extraTasks + (this.nextPageToken ? "+" : "");
+      let totalStr = this.tasks.length + (this.nextPageToken ? "+" : "");
+
+      let moreWrapper = document.createElement("div");
+      moreWrapper.className = "more-indicator light dimmed";
+      let text = this.config.moreIndicatorFormat || "+{extra} more tasks";
+      text = text
+        .replace("{extra}", extraStr)
+        .replace("{total}", totalStr)
+        .replace("{displayed}", tasksToDisplay.length);
+      moreWrapper.innerHTML = text;
+      wrapper.appendChild(moreWrapper);
+    }
 
     return wrapper;
   }

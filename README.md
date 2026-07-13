@@ -68,3 +68,5 @@ var config = {
 | `colorTasks`            | *Optional* - Assign distinct vibrant colors to each task item (like calendar events) <br><br> **Possible values:** `true`, `false` <br> **Default value:** `false` |
 | `taskColors`            | *Optional* - Array of vibrant color hex strings to cycle through when `colorTasks` is enabled <br><br> **Possible values:** Array of color strings <br> **Default value:** `["#4285f4", "#f4b400", "#0f9d58", "#ff7043", "#ab47bc", "#00acc1", "#ec407a"]` |
 | `titleColor`            | *Optional* - Custom CSS color for task titles <br><br> **Possible values:** Any CSS color string (e.g. `"#ffffff"`, `"#4285f4"`) <br> **Default value:** `""` (Bright White) |
+| `showMoreIndicator`     | *Optional* - Show an indicator at the bottom when total tasks exceed `maxResults` <br><br> **Possible values:** `true`, `false` <br> **Default value:** `true` |
+| `moreIndicatorFormat`   | *Optional* - Format string for the more indicator <br><br> **Possible values:** Format string using `{extra}`, `{total}`, `{displayed}` placeholders <br> **Default value:** `"+{extra} more tasks"` (e.g. `"+6 more tasks"` or `"{displayed} of {total} tasks"`) |

@@ -237,7 +237,7 @@ Module.register("MMM-GoogleTasks", {
       let totalStr = this.tasks.length + (this.nextPageToken ? "+" : "");
 
       let moreWrapper = document.createElement("div");
-      moreWrapper.className = "more-indicator light dimmed";
+      moreWrapper.className = "more-indicator light";
       let text = this.config.moreIndicatorFormat || "+{extra} more tasks";
       text = text
         .replace("{extra}", extraStr)

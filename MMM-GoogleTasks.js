@@ -171,11 +171,29 @@ Module.register("MMM-GoogleTasks", {
         break;
 
       case "due":
+        this.tasks = this.tasks.sort((a, b) => {
+          if (!a.due && !b.due) return 0;
+          if (!a.due) return 1;
+          if (!b.due) return -1;
+          return new Date(a.due) - new Date(b.due);
+        });
+        break;
+
       case "title":
+        this.tasks = this.tasks.sort((a, b) => {
+          const titleA = (a.title || "").toLowerCase();
+          const titleB = (b.title || "").toLowerCase();
+          return titleA.localeCompare(titleB);
+        });
+        break;
+
       case "updated":
-        this.tasks = this.tasks.sort((a, b) =>
-          a[this.config.ordering] > b[this.config.ordering] ? 1 : -1
-        );
+        this.tasks = this.tasks.sort((a, b) => {
+          if (!a.updated && !b.updated) return 0;
+          if (!a.updated) return 1;
+          if (!b.updated) return -1;
+          return new Date(b.updated) - new Date(a.updated);
+        });
         break;
     }
 

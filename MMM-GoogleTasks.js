@@ -236,7 +236,12 @@ Module.register("MMM-GoogleTasks", {
 
       if (item.due) {
         let date = moment(item.due);
-        dateWrapper.innerHTML = date.utc().format(this.config.dateFormat);
+        if (this.config.useUtc) {
+          date = date.utc();
+        }
+        if (date.isValid()) {
+          dateWrapper.innerHTML = date.format(this.config.dateFormat);
+        }
       }
 
       // Create borders between parent items

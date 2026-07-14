@@ -235,12 +235,15 @@ Module.register("MMM-GoogleTasks", {
       dateWrapper.className = "item date light";
 
       if (item.due) {
+        const dateFormat = this.config.dateFormat || "MMM Do";
         let date = moment(item.due);
-        if (this.config.useUtc) {
+        if (this.config.useUtc !== false) {
           date = date.utc();
         }
         if (date.isValid()) {
-          dateWrapper.innerHTML = date.format(this.config.dateFormat);
+          dateWrapper.innerHTML = date.format(dateFormat);
+        } else {
+          dateWrapper.innerHTML = String(item.due);
         }
       }
 

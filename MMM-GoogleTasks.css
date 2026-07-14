@@ -78,11 +78,13 @@
   } */
 
   .MMM-GoogleTasks .item.date {
-      padding-left: 1.7em;
+      padding-left: 1.2em;
       text-align: right;
       white-space: nowrap !important;
-      color: #cccccc;
-      opacity: 1;
+      color: #cccccc !important;
+      opacity: 1 !important;
+      font-size: 0.75em !important;
+      align-self: end;
   }
 
   .MMM-GoogleTasks .item.notes {

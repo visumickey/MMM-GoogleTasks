@@ -1,6 +1,6 @@
   .MMM-GoogleTasks .container {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-columns: minmax(0, 1fr) max-content;
       margin-top: 0.25em;
       box-sizing: border-box;
   }
@@ -85,6 +85,7 @@
       opacity: 1 !important;
       font-size: 0.75em !important;
       align-self: end;
+      min-width: max-content;
   }
 
   .MMM-GoogleTasks .item.notes {

@@ -56,9 +56,9 @@
       font-weight: var(--task-font-weight, 500);
   }
 
-  .MMM-GoogleTasks .container.wrap-text .item,
-  .MMM-GoogleTasks .wrap-text .item,
-  .MMM-GoogleTasks.wrap-text .item {
+  .MMM-GoogleTasks .container.wrap-text .item.title,
+  .MMM-GoogleTasks .wrap-text .item.title,
+  .MMM-GoogleTasks.wrap-text .item.title {
       white-space: normal !important;
       overflow-wrap: break-word;
       word-break: break-word;
@@ -77,6 +77,10 @@
   /* .MMM-GoogleTasks .item.title {
   } */
 
+  .MMM-GoogleTasks .container .item.date,
+  .MMM-GoogleTasks .container.wrap-text .item.date,
+  .MMM-GoogleTasks .wrap-text .item.date,
+  .MMM-GoogleTasks.wrap-text .item.date,
   .MMM-GoogleTasks .item.date {
       padding-left: 1.2em;
       text-align: right;

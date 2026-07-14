@@ -172,10 +172,32 @@ Module.register("MMM-GoogleTasks", {
 
       case "due":
         this.tasks = this.tasks.sort((a, b) => {
-          if (!a.due && !b.due) return 0;
-          if (!a.due) return 1;
-          if (!b.due) return -1;
-          return new Date(a.due) - new Date(b.due);
+          const dueA = a.due || a.dueDate || a.due_date;
+          const dueB = b.due || b.dueDate || b.due_date;
+
+          const getTier = (item, due) => {
+            if (!due) return 3; // Tier 3: No date (use position in list)
+            const date = new Date(due);
+            const isScheduledTime =
+              date.getUTCHours() !== 0 || date.getUTCMinutes() !== 0;
+            return isScheduledTime ? 2 : 1; // Tier 1: Target Deadline, Tier 2: Scheduled Time
+          };
+
+          const tierA = getTier(a, dueA);
+          const tierB = getTier(b, dueB);
+
+          if (tierA !== tierB) {
+            return tierA - tierB;
+          }
+
+          if (tierA === 1 || tierA === 2) {
+            const timeDiff = new Date(dueA) - new Date(dueB);
+            if (timeDiff !== 0) return timeDiff;
+          }
+
+          const posA = a.position !== undefined ? a.position : 0;
+          const posB = b.position !== undefined ? b.position : 0;
+          return posA > posB ? 1 : posA < posB ? -1 : 0;
         });
         break;
 
@@ -234,16 +256,17 @@ Module.register("MMM-GoogleTasks", {
       dateWrapper = document.createElement("div");
       dateWrapper.className = "item date light";
 
-      if (item.due) {
+      const dueRaw = item.due || item.dueDate || item.due_date;
+      if (dueRaw) {
         const dateFormat = this.config.dateFormat || "MMM Do";
-        let date = moment(item.due);
+        let date = moment(dueRaw);
         if (this.config.useUtc !== false) {
           date = date.utc();
         }
         if (date.isValid()) {
           dateWrapper.innerHTML = date.format(dateFormat);
         } else {
-          dateWrapper.innerHTML = String(item.due);
+          dateWrapper.innerHTML = String(dueRaw);
         }
       }
 
